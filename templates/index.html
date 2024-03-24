@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    {% load static %}
+
+    <script src="{% static 'js/color-modes.js'%}"></script>
+    {% include "partials/_bootcss.html" %}
+    {% block time %}
+    {% endblock time %}
+</head>
+
+<body>
+
+
+    {% block message1 %}
+    {% for msg in messages %}
+    <div class="alert alert-success alert-dismissible fade show" role="alert">
+        <strong>{{msg}}</strong>
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+    {% endfor %}
+
+    {% endblock %}
+
+
+    <div class="header1">
+        {% include "partials/_header.html" %}
+    </div>
+    {% block center %}
+    <div class="center">
+        {% include "partials/_center.html" %}
+    </div>
+    {% endblock %}
+    <div class="footer1">
+        {% include "partials/_footer.html" %}
+    </div>
+</body>
+
+</html>
